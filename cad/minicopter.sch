@@ -642,6 +642,32 @@ chip</description>
 <rectangle x1="-0.65" y1="-0.35" x2="0.65" y2="0.35" layer="31"/>
 <circle x="-2" y="-1.4" radius="0.4" width="0.127" layer="21"/>
 </package>
+<package name="LGA12">
+<smd name="5" x="-0.25" y="-0.85" dx="0.25" dy="0.5" layer="1"/>
+<smd name="6" x="0.25" y="-0.85" dx="0.25" dy="0.5" layer="1"/>
+<smd name="12" x="-0.25" y="0.85" dx="0.25" dy="0.5" layer="1"/>
+<smd name="11" x="0.25" y="0.85" dx="0.25" dy="0.5" layer="1"/>
+<smd name="2" x="-0.85" y="0.25" dx="0.25" dy="0.5" layer="1" rot="R90"/>
+<smd name="3" x="-0.85" y="-0.25" dx="0.25" dy="0.5" layer="1" rot="R90"/>
+<smd name="9" x="0.85" y="0.25" dx="0.25" dy="0.5" layer="1" rot="R90"/>
+<smd name="8" x="0.85" y="-0.25" dx="0.25" dy="0.5" layer="1" rot="R90"/>
+<smd name="10" x="0.85" y="0.75" dx="0.25" dy="0.5" layer="1" rot="R90"/>
+<smd name="7" x="0.85" y="-0.75" dx="0.25" dy="0.5" layer="1" rot="R90"/>
+<smd name="4" x="-0.85" y="-0.75" dx="0.25" dy="0.5" layer="1" rot="R90"/>
+<smd name="1" x="-0.85" y="0.75" dx="0.25" dy="0.5" layer="1" rot="R90"/>
+<circle x="-1" y="1.2" radius="0.2" width="0.1" layer="21"/>
+<wire x1="-0.9" y1="1" x2="-0.5" y2="1" width="0.1" layer="21"/>
+<wire x1="0.5" y1="1" x2="1" y2="1" width="0.1" layer="21"/>
+<wire x1="-1" y1="-1" x2="-0.5" y2="-1" width="0.1" layer="21"/>
+<wire x1="0.5" y1="-1" x2="1" y2="-1" width="0.1" layer="21"/>
+<text x="-1.9" y="1.5" size="1" layer="25" ratio="10">&gt;NAME</text>
+<text x="-2.4" y="-0.5" size="1" layer="27" ratio="10">&gt;VALUE</text>
+</package>
+<package name="FIDUCIAL">
+<circle x="0" y="0" radius="0.5" width="0" layer="29"/>
+<circle x="0" y="0" radius="1.1" width="0" layer="39"/>
+<circle x="0" y="0" radius="1.1" width="0" layer="51"/>
+</package>
 </packages>
 <symbols>
 <symbol name="STM32F411/48">
@@ -891,6 +917,26 @@ LOGO</text>
 <pin name="NSLEEP" x="20.32" y="7.62" visible="pin" length="middle" direction="in" rot="R180"/>
 <text x="7.62" y="10.16" size="1.778" layer="95">&gt;NAME</text>
 <text x="7.62" y="-15.24" size="1.778" layer="96">&gt;VALUE</text>
+</symbol>
+<symbol name="LIS3MDL">
+<pin name="VCC" x="-2.54" y="15.24" length="middle" rot="R270"/>
+<pin name="VCCIO" x="2.54" y="15.24" length="middle" rot="R270"/>
+<pin name="GND" x="0" y="-15.24" length="middle" rot="R90"/>
+<pin name="SA0" x="-15.24" y="-2.54" length="middle"/>
+<pin name="SCL" x="-15.24" y="2.54" length="middle"/>
+<pin name="SDA" x="-15.24" y="5.08" length="middle"/>
+<pin name="CS" x="-15.24" y="-5.08" length="middle"/>
+<pin name="DRDY" x="15.24" y="0" length="middle" rot="R180"/>
+<pin name="INT" x="15.24" y="-2.54" length="middle" rot="R180"/>
+<pin name="C1" x="15.24" y="-5.08" length="middle" rot="R180"/>
+<wire x1="-10.16" y1="10.16" x2="10.16" y2="10.16" width="0.254" layer="94"/>
+<wire x1="10.16" y1="10.16" x2="10.16" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="10.16" y1="-10.16" x2="-10.16" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="-10.16" y1="-10.16" x2="-10.16" y2="10.16" width="0.254" layer="94"/>
+</symbol>
+<symbol name="FIDUCIAL">
+<circle x="0" y="0" radius="2.54" width="0.254" layer="94"/>
+<circle x="0" y="0" radius="0.254" width="0.254" layer="94"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -1314,6 +1360,42 @@ LOGO</text>
 <connect gate="G$1" pin="VCC" pad="12"/>
 <connect gate="G$1" pin="VM" pad="1 2"/>
 </connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="LIS3MDL" prefix="U">
+<gates>
+<gate name="G$1" symbol="LIS3MDL" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="LGA12">
+<connects>
+<connect gate="G$1" pin="C1" pad="4"/>
+<connect gate="G$1" pin="CS" pad="10"/>
+<connect gate="G$1" pin="DRDY" pad="8"/>
+<connect gate="G$1" pin="GND" pad="3"/>
+<connect gate="G$1" pin="INT" pad="7"/>
+<connect gate="G$1" pin="SA0" pad="9"/>
+<connect gate="G$1" pin="SCL" pad="1"/>
+<connect gate="G$1" pin="SDA" pad="11"/>
+<connect gate="G$1" pin="VCC" pad="5"/>
+<connect gate="G$1" pin="VCCIO" pad="6"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="FIDUCIAL">
+<gates>
+<gate name="G$1" symbol="FIDUCIAL" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="FIDUCIAL">
 <technologies>
 <technology name=""/>
 </technologies>
@@ -5447,6 +5529,13 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="VCC11" library="jaw" deviceset="PWR-VCC" device=""/>
 <part name="VCCM5" library="jaw" deviceset="PWR-VCCM" device=""/>
 <part name="GND17" library="jaw" deviceset="PWR-GND" device=""/>
+<part name="U6" library="jaw" deviceset="LIS3MDL" device=""/>
+<part name="C7" library="jaw" deviceset="C" device="0603" value=".1u"/>
+<part name="GND19" library="jaw" deviceset="PWR-GND" device=""/>
+<part name="VCC12" library="jaw" deviceset="PWR-VCC" device=""/>
+<part name="GND21" library="jaw" deviceset="PWR-GND" device=""/>
+<part name="GND22" library="jaw" deviceset="PWR-GND" device=""/>
+<part name="U$2" library="jaw" deviceset="FIDUCIAL" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -5545,6 +5634,13 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <instance part="VCC11" gate="G$1" x="302.26" y="213.36"/>
 <instance part="VCCM5" gate="G$1" x="307.34" y="210.82"/>
 <instance part="GND17" gate="G$1" x="309.88" y="172.72"/>
+<instance part="U6" gate="G$1" x="314.96" y="88.9"/>
+<instance part="C7" gate="G$1" x="335.28" y="78.74"/>
+<instance part="GND19" gate="G$1" x="314.96" y="71.12"/>
+<instance part="VCC12" gate="G$1" x="314.96" y="109.22"/>
+<instance part="GND21" gate="G$1" x="335.28" y="73.66"/>
+<instance part="GND22" gate="G$1" x="342.9" y="88.9"/>
+<instance part="U$2" gate="G$1" x="393.7" y="33.02"/>
 </instances>
 <busses>
 </busses>
@@ -5715,6 +5811,19 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <pinref part="U3" gate="G$1" pin="GND"/>
 <pinref part="GND17" gate="G$1" pin="GND"/>
 </segment>
+<segment>
+<pinref part="U6" gate="G$1" pin="GND"/>
+<pinref part="GND19" gate="G$1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="U6" gate="G$1" pin="SA0"/>
+<wire x1="299.72" y1="86.36" x2="297.18" y2="86.36" width="0.1524" layer="91"/>
+<label x="289.56" y="86.36" size="1.778" layer="95" ratio="10"/>
+</segment>
+<segment>
+<pinref part="C7" gate="G$1" pin="P$2"/>
+<pinref part="GND21" gate="G$1" pin="GND"/>
+</segment>
 </net>
 <net name="VCC" class="0">
 <segment>
@@ -5848,6 +5957,23 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="294.64" y1="185.42" x2="292.1" y2="185.42" width="0.1524" layer="91"/>
 <label x="287.02" y="185.42" size="1.778" layer="95" ratio="10"/>
 </segment>
+<segment>
+<pinref part="U6" gate="G$1" pin="VCC"/>
+<pinref part="U6" gate="G$1" pin="VCCIO"/>
+<wire x1="312.42" y1="104.14" x2="314.96" y2="104.14" width="0.1524" layer="91"/>
+<pinref part="VCC12" gate="G$1" pin="VCC"/>
+<wire x1="314.96" y1="104.14" x2="317.5" y2="104.14" width="0.1524" layer="91"/>
+<wire x1="314.96" y1="106.68" x2="314.96" y2="104.14" width="0.1524" layer="91"/>
+<junction x="314.96" y="104.14"/>
+<wire x1="317.5" y1="104.14" x2="342.9" y2="104.14" width="0.1524" layer="91"/>
+<wire x1="342.9" y1="104.14" x2="342.9" y2="99.06" width="0.1524" layer="91"/>
+<junction x="317.5" y="104.14"/>
+</segment>
+<segment>
+<pinref part="U6" gate="G$1" pin="CS"/>
+<wire x1="299.72" y1="83.82" x2="297.18" y2="83.82" width="0.1524" layer="91"/>
+<label x="289.56" y="83.82" size="1.778" layer="95" ratio="10"/>
+</segment>
 </net>
 <net name="BOOT0" class="0">
 <segment>
@@ -5907,6 +6033,11 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="373.38" y1="142.24" x2="370.84" y2="142.24" width="0.1524" layer="91"/>
 <label x="363.22" y="142.24" size="1.778" layer="95" ratio="10"/>
 </segment>
+<segment>
+<pinref part="U6" gate="G$1" pin="SCL"/>
+<wire x1="299.72" y1="91.44" x2="297.18" y2="91.44" width="0.1524" layer="91"/>
+<label x="289.56" y="91.44" size="1.778" layer="95" ratio="10"/>
+</segment>
 </net>
 <net name="I2CDA" class="0">
 <segment>
@@ -5924,6 +6055,11 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <pinref part="U4" gate="G$1" pin="SDA"/>
 <wire x1="373.38" y1="139.7" x2="370.84" y2="139.7" width="0.1524" layer="91"/>
 <label x="363.22" y="139.7" size="1.778" layer="95" ratio="10"/>
+</segment>
+<segment>
+<pinref part="U6" gate="G$1" pin="SDA"/>
+<wire x1="299.72" y1="93.98" x2="297.18" y2="93.98" width="0.1524" layer="91"/>
+<label x="289.56" y="93.98" size="1.778" layer="95" ratio="10"/>
 </segment>
 </net>
 <net name="TX" class="0">
@@ -6164,6 +6300,13 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="325.12" y1="187.96" x2="342.9" y2="187.96" width="0.1524" layer="91"/>
 <wire x1="342.9" y1="187.96" x2="342.9" y2="200.66" width="0.1524" layer="91"/>
 <wire x1="342.9" y1="200.66" x2="350.52" y2="200.66" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$23" class="0">
+<segment>
+<pinref part="U6" gate="G$1" pin="C1"/>
+<pinref part="C7" gate="G$1" pin="P$1"/>
+<wire x1="330.2" y1="83.82" x2="335.28" y2="83.82" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
