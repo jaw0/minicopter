@@ -1,0 +1,34 @@
+
+C1    10u
+C2    1u
+C3    .1u
+C4    47u       0805
+C5    .1u
+C6    .1u
+C7    .1u
+C10   4u7
+C11   10u
+C14   .1u
+C15   .1u
+C19   .1u
+C20   .1u
+C21   .1u
+C22   4u7
+C23   .1u
+R1    1k
+R2    1k
+R3    1k
+R4    10k
+R5    10k
+R6    1k
+R7    4k7
+R8    4k7
+
+CN3   JST_2PIN
+LEDs  APHBM2012QBDSURKC         dual-color LED 0805
+VR1   MCP1700T-3302E/TT         3.3V LDO
+U1    STM32F411CEU6             cpu
+U2    LSM6DS3                   accel/gyro
+U3,5  DRV8839                   motor driver
+U4    LPS25HB                   pressure sensor
+U6    LIS3MDL                   magnetometer
