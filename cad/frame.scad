@@ -22,7 +22,7 @@ motor_diam = 7;
 mot_pos = (prop_x - pcb_x) / 2;
 mot_armang = atan( (mot_z + 2) / (mot_pos + peg_pos) / sqrt(2) );
 
-$fn = 0;
+$fn = 64;
 $fa = .5;
 $fs = 0.05;
 
@@ -48,9 +48,9 @@ module proparm(){
 
     // board support+attach
     translate([ (pcb_x/2-peg_pos)*sqrt(2), 0, 0]) rotate([0,0,45]){
-        vcyl(0,0,-3, 3, 3,3);
+        vcyl(0,0,-4, 3.5, 3.5,4);
         // slightly tapered pins
-        vcyl(0,0,-.1, 1.0, 0.7, 2.1);
+        vcyl(0,0,-.1, 1.0, 0.85, 2.1);
         box(-3.5,-.5,-1.5, 4,1,1.5);
         box( -.5,-.5,-1.5, 1,4,1.5);
 
@@ -58,11 +58,16 @@ module proparm(){
 
     // legs
     translate([ (pcb_x/2-peg_pos)*sqrt(2), 0, -3.0]) rotate([0,30,0]){
+
         intersection(){
-            box(0,-1,0, 15,2,1.5);
-            hcyl(0,0,1, 2, 1, 15);
+            union(){
+                box(0,-1.5,2.0, 25, 3, 1);
+                rotate([0,-3,0]) box(0,-.5,0, 25, 1, 3);
+            }
+            box(0,-1.5,-1, 25, 3, 4);
+            hcyl(0,0,2.5, 5.3,2.25, 25);
         }
-        translate([15,0,.5]) sphere(1.0);
+        translate([25,0,1.25]) sphere(2.0);
     }
 
     difference(){
@@ -70,15 +75,15 @@ module proparm(){
             // motor arms
             intersection(){
                 translate([ (pcb_x/2-peg_pos)*sqrt(2), 0, -2.0]) rotate([0,-mot_armang,0]) {
-                    box(0, -1.4, 0, (mot_pos+peg_pos)*sqrt(2) / cos(mot_armang), 2.8,1 );
-                    box(0,-.5,  -1.5, (mot_pos+peg_pos)*sqrt(2) / cos(mot_armang), 1,2.5 );
+                    box(0, -1.5, 0,   (mot_pos+peg_pos)*sqrt(2) / cos(mot_armang), 3.0,1 );
+                    box(0,-.5,  -2, (mot_pos+peg_pos)*sqrt(2) / cos(mot_armang), 1,3.0 );
                 }
                 // clean up the bottom
-                box(-5,-5,-3, 60,60,60);
+                box(-5,-5,-4, 60,60,60);
             }
             // motor mounts
             translate([prop_x/2 * sqrt(2),0, mot_z]) rotate([0,-motor_phi,0]){
-                vcyl(0,0,-3.25, motor_diam+2, motor_diam+2, 6.5 );
+                vcyl(0,0,-3.5, motor_diam+2, motor_diam+2, 6.5 );
 
                 // prop
                 if( show_env ) color([.75,0,.75,1]) vcyl(0,0,5, 45, 45, 5);
@@ -97,14 +102,27 @@ module proparm(){
 
 module cage(){
     // outer box
-    box(-28/2-1.5, 28/2+.5, -1.25, 28+3, 1.0,2.5);
-    box(-28/2-1.5, 28/2-.5, -.5,  28+3, 2.0,1.0);
-
+    difference(){
+        union(){
+            box( 28/2+.5, -28/2-2, -2.0, 2.0, 28+4, 4.0);
+            box( 28/2-.5,  -28/2-2, -1.0, 2.0, 28+4, 2.0);
+        }
+        // clean up/bevel the corners
+        union(){
+            for(a = [-45, 45]){
+                rotate([0,0,a])
+                    translate([ (pcb_x/2-peg_pos)*sqrt(2), 0, 0])
+                        rotate([0,-mot_armang,0])
+                            box(-2,-4,-6.1,  8,8,2);
+            }
+        }
+    }
     // rubber band attachment pegs
-    hcyl(28/2+.5, -6, 0,  2,2,3);
-    hcyl(28/2+.5,  6, 0,  2,2,3);
-    hcyl(28/2+.5, -2, 0,  2,2,3);
-    hcyl(28/2+.5,  2, 0,  2,2,3);
+    hcyl(28/2+.5, -6, 0,  2,2,5);
+    hcyl(28/2+.5,  6, 0,  2,2,5);
+    hcyl(28/2+.5, -2, 0,  2,2,5);
+    hcyl(28/2+.5,  2, 0,  2,2,5);
+
 }
 
 
@@ -116,7 +134,7 @@ for( angle = [ 0 : 90 : 270 ] ){
     rotate([0,0,45+angle]) proparm();
 
     // outer cage
-    rotate([0,0,angle]) translate([0,0,.60]) cage();
+    rotate([0,0,angle]) translate([0,0,.4]) cage();
 
 }
 
