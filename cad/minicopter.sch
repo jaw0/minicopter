@@ -6204,7 +6204,7 @@ for cap :-(</text>
 <pinref part="R8" gate="G$1" pin="P$2"/>
 <wire x1="170.18" y1="58.42" x2="175.26" y2="58.42" width="0.1524" layer="91"/>
 <junction x="170.18" y="58.42"/>
-<label x="180.34" y="58.42" size="1.27" layer="95" ratio="10"/>
+<label x="180.34" y="58.42" size="1.778" layer="95" ratio="10"/>
 <pinref part="C5" gate="G$1" pin="P$1"/>
 <wire x1="175.26" y1="58.42" x2="180.34" y2="58.42" width="0.1524" layer="91"/>
 <junction x="175.26" y="58.42"/>
@@ -6219,7 +6219,7 @@ for cap :-(</text>
 <segment>
 <pinref part="R1" gate="G$1" pin="P$2"/>
 <wire x1="200.66" y1="68.58" x2="200.66" y2="71.12" width="0.1524" layer="91"/>
-<label x="200.66" y="71.12" size="1.27" layer="95" ratio="10"/>
+<label x="200.66" y="71.12" size="1.778" layer="95" ratio="10"/>
 </segment>
 </net>
 <net name="IOA7" class="0">
@@ -6231,7 +6231,7 @@ for cap :-(</text>
 <segment>
 <pinref part="R2" gate="G$1" pin="P$2"/>
 <wire x1="210.82" y1="68.58" x2="210.82" y2="71.12" width="0.1524" layer="91"/>
-<label x="210.82" y="71.12" size="1.27" layer="95" ratio="10"/>
+<label x="210.82" y="71.12" size="1.778" layer="95" ratio="10"/>
 </segment>
 </net>
 <net name="IOB0" class="0">
@@ -6243,7 +6243,7 @@ for cap :-(</text>
 <segment>
 <pinref part="R3" gate="G$1" pin="P$2"/>
 <wire x1="226.06" y1="68.58" x2="226.06" y2="71.12" width="0.1524" layer="91"/>
-<label x="226.06" y="71.12" size="1.27" layer="95" ratio="10"/>
+<label x="226.06" y="71.12" size="1.778" layer="95" ratio="10"/>
 </segment>
 </net>
 <net name="IOB1" class="0">
@@ -6255,7 +6255,7 @@ for cap :-(</text>
 <segment>
 <pinref part="R6" gate="G$1" pin="P$2"/>
 <wire x1="236.22" y1="68.58" x2="236.22" y2="71.12" width="0.1524" layer="91"/>
-<label x="236.22" y="71.12" size="1.27" layer="95" ratio="10"/>
+<label x="236.22" y="71.12" size="1.778" layer="95" ratio="10"/>
 </segment>
 </net>
 <net name="N$12" class="0">
