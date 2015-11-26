@@ -14,3 +14,5 @@ teeny-tiny autonomous quadcopter flying machine
 
 * 3D printed frame
 
+* buggy, poorly performing software
+
