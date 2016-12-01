@@ -16,3 +16,5 @@ teeny-tiny autonomous quadcopter flying machine
 
 * buggy, poorly performing software
 
+* see also: [hackaday.io](https://hackaday.io/project/7947-quadcopter-in-one-inch)
+
